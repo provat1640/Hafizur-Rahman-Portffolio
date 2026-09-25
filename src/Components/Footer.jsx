@@ -28,6 +28,41 @@ const Footer = (props) => {
     website,
   } = props;
 
+  const workAreas = [
+    {
+      label: "AWS Cloud",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    },
+    {
+      label: "Azure DevOps",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+    },
+    {
+      label: "Docker",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    },
+    {
+      label: "Cloud architecture",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
+    },
+    {
+      label: "Android",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
+    },
+    {
+      label: "Open source",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    },
+    {
+      label: "Developer tools",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+    },
+    {
+      label: "MCP protocol",
+      image: "https://cdn.simpleicons.org/modelcontextprotocol/ffffff",
+    },
+  ];
+
   return (
     <div
       id="footer"
@@ -41,47 +76,29 @@ const Footer = (props) => {
         width: "100vw"
       }}
     >
-      <div className="footerMain">
-        <div className="contactIntro">
-          <p className="eyebrow">Available for opportunities</p>
-          <h2>Let's build something useful.</h2>
-          <p>{address}</p>
-        </div>
-        <div className="technologyStrip" aria-label="Cloud and software technologies">
-          <div className="technologyItem">
-            <img src="https://cdn.simpleicons.org/amazonaws" alt="AWS Cloud" />
-            <span>AWS Cloud</span>
-          </div>
-          <div className="technologyItem">
-            <img src="https://cdn.simpleicons.org/azuredevops" alt="Azure DevOps" />
-            <span>Azure DevOps</span>
-          </div>
-          <div className="technologyItem">
-            <img src="https://cdn.simpleicons.org/docker" alt="Docker" />
-            <span>Docker</span>
-          </div>
-          <div className="technologyItem">
-            <img src="https://cdn.simpleicons.org/googlecloud" alt="Cloud architecture" />
-            <span>Cloud architecture</span>
-          </div>
-        </div>
+      <div className="contactIntro">
+        <p className="eyebrow">Available for opportunities</p>
+        <h2>Let's build something useful.</h2>
+        <p>{address}</p>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "2.5rem",
-        }}
-      >
-        {email && <a href={`mailto:${email}`}>Email</a>}
-        {phone && <a href={`tel:${phone}`}>Phone</a>}
+      <div className="workAreas" aria-label="Technologies and areas of work">
+        {workAreas.map((area) => (
+          <div className="workArea" key={area.label}>
+            <img src={area.image} alt="" />
+            <span>{area.label}</span>
+          </div>
+        ))}
+      </div>
+      <div className="contactLinks" aria-label="Contact details">
+        {email && <a href={`mailto:${email}`}>{email}</a>}
+        {phone && <a href={`tel:${phone}`}>{phone}</a>}
         {linkedIn && (
           <a href={linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         )}
-        {website && <a href={website} target="_blank" rel="noopener noreferrer">Website</a>}
+        {website && <a href={website} target="_blank" rel="noopener noreferrer">Portfolio</a>}
       </div>
       <p className="small" style={{ marginTop: 0, color: "white" }}>
-        {name} / Software engineering student / Dhaka
+        {name} / Software engineering student / {address}
       </p>
     </div>
   );

@@ -179,6 +179,67 @@ img.socialIcon {
   outline-offset: 5px;
 }
 
+.workAreas {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 760px;
+  width: 100%;
+}
+
+.workArea {
+  align-items: center;
+  border: 1px solid rgba(250, 248, 243, 0.2);
+  display: flex;
+  gap: 0.75rem;
+  min-height: 4.5rem;
+  padding: 0.85rem 1rem;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.workArea:hover {
+  background: rgba(250, 248, 243, 0.08);
+  border-color: rgba(246, 200, 95, 0.7);
+  transform: translateY(-3px);
+}
+
+.workArea img {
+  filter: grayscale(1) brightness(0) invert(1);
+  height: 2rem;
+  object-fit: contain;
+  width: 2rem;
+}
+
+.workArea:first-child img {
+  width: 3.25rem;
+}
+
+.workArea span {
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.contactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: center;
+}
+
+.contactLinks a {
+  color: var(--paper);
+  font-size: 0.82rem;
+}
+
+.contactLinks a:hover,
+.contactLinks a:focus-visible {
+  color: var(--sun);
+}
+
 @keyframes socialOrbit {
   0% {
     opacity: 0;
@@ -575,52 +636,12 @@ figcaption {
   padding: 6rem max(2rem, calc((100vw - 1120px) / 2)) 3rem !important;
 }
 
-.footerMain {
-  align-items: center;
-  display: grid;
-  gap: clamp(3rem, 8vw, 8rem);
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 1fr);
-  width: 100%;
-}
-
 .contactIntro h2 {
   color: var(--paper);
 }
 
 .contactIntro p:last-child {
   color: rgba(250, 248, 243, 0.7);
-}
-
-.technologyStrip {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.technologyItem {
-  align-items: center;
-  border: 1px solid rgba(250, 248, 243, 0.2);
-  display: flex;
-  gap: 0.75rem;
-  min-height: 4.5rem;
-  padding: 0.75rem 1rem;
-}
-
-.technologyItem img {
-  background: rgba(250, 248, 243, 0.08);
-  border-radius: 50%;
-  height: 2.5rem;
-  padding: 0.45rem;
-  width: 2.5rem;
-}
-
-.technologyItem span {
-  color: var(--paper);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  line-height: 1.25;
-  text-transform: uppercase;
 }
 
 #footer > div:first-child {
@@ -695,17 +716,21 @@ figcaption {
     padding-right: 1.25rem !important;
   }
 
-  .footerMain {
-    gap: 2.5rem;
-    grid-template-columns: 1fr;
-  }
-
-  .technologyStrip {
-    width: 100%;
-  }
-
   #footer > div:first-child {
     margin-left: 0;
+  }
+
+  .workAreas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workArea {
+    min-height: 4rem;
+    padding: 0.75rem;
+  }
+
+  .workArea span {
+    font-size: 0.65rem;
   }
 }
 
