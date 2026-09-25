@@ -41,10 +41,30 @@ const Footer = (props) => {
         width: "100vw"
       }}
     >
-      <div className="contactIntro">
-        <p className="eyebrow">Available for opportunities</p>
-        <h2>Let's build something useful.</h2>
-        <p>{address}</p>
+      <div className="footerMain">
+        <div className="contactIntro">
+          <p className="eyebrow">Available for opportunities</p>
+          <h2>Let's build something useful.</h2>
+          <p>{address}</p>
+        </div>
+        <div className="technologyStrip" aria-label="Cloud and software technologies">
+          <div className="technologyItem">
+            <img src="https://cdn.simpleicons.org/amazonaws" alt="AWS Cloud" />
+            <span>AWS Cloud</span>
+          </div>
+          <div className="technologyItem">
+            <img src="https://cdn.simpleicons.org/azuredevops" alt="Azure DevOps" />
+            <span>Azure DevOps</span>
+          </div>
+          <div className="technologyItem">
+            <img src="https://cdn.simpleicons.org/docker" alt="Docker" />
+            <span>Docker</span>
+          </div>
+          <div className="technologyItem">
+            <img src="https://cdn.simpleicons.org/googlecloud" alt="Cloud architecture" />
+            <span>Cloud architecture</span>
+          </div>
+        </div>
       </div>
       <div
         style={{
