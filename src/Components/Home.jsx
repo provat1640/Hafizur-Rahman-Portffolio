@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
  * freely use on your site.
  */
 import image from "../Image/Vibe.jpeg";
+import universityImage from "../Image/University.jpeg";
 
 const imageAltText = "A selected project image from Hafizur Rahman Provat's portfolio";
 
@@ -27,13 +28,25 @@ const Home = ({ name, title }) => {
   return (
     <section id="home" className="min-height">
       <img className="background" src={image} alt="" />
-      <div className="heroContent">
-        <p className="eyebrow">Software engineering / Dhaka</p>
-        <h1>{name}</h1>
-        <h2>{title}</h2>
-        <p className="heroIntro">
-          Building practical software with Java, Python, JavaScript, and cloud technologies.
-        </p>
+      <div className="heroLayout">
+        <div className="heroContent">
+          <p className="eyebrow">Software engineering / Dhaka</p>
+          <h1>{name}</h1>
+          <h2>{title}</h2>
+          <p className="heroIntro">
+            Building practical software with Java, Python, JavaScript, and cloud technologies.
+          </p>
+        </div>
+        <div className="heroVisuals" aria-label="Portfolio and university images">
+          <figure className="heroImage heroImageUniversity">
+            <img src={universityImage} alt="University image representing Hafizur's software engineering journey" />
+            <figcaption>Learn / build / repeat</figcaption>
+          </figure>
+          <figure className="heroImage heroImageVibe">
+            <img src={image} alt="Portfolio image from Hafizur Rahman Provat's selected work" />
+            <figcaption>Make it useful</figcaption>
+          </figure>
+        </div>
       </div>
       <a className="scrollHint" href="#about" aria-label="Scroll to About section">Scroll to explore</a>
     </section>

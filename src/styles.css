@@ -324,12 +324,82 @@ a:focus-visible {
   z-index: 0;
 }
 
-.heroContent {
+.heroLayout {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 6vw, 7rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
   margin: auto 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.heroContent {
   max-width: 650px;
   padding: 8rem 0 6rem;
   position: relative;
   z-index: 1;
+}
+
+.heroContent .eyebrow,
+.heroContent h1,
+.heroContent h2,
+.heroContent .heroIntro {
+  animation: heroRise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.heroContent h1 {
+  animation-delay: 120ms;
+}
+
+.heroContent h2 {
+  animation-delay: 220ms;
+}
+
+.heroContent .heroIntro {
+  animation-delay: 320ms;
+}
+
+.heroVisuals {
+  align-items: center;
+  display: flex;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  justify-content: center;
+  perspective: 1000px;
+  position: relative;
+}
+
+.heroImage {
+  animation: imageReveal 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both, imageFloat 7s ease-in-out 1s infinite;
+  margin: 0;
+  position: relative;
+  width: min(21vw, 250px);
+}
+
+.heroImageUniversity {
+  animation-delay: 180ms, 1.2s;
+  transform: rotate(-5deg) translateY(1rem);
+}
+
+.heroImageVibe {
+  animation-delay: 360ms, 1.7s;
+  transform: rotate(5deg) translateY(-1rem);
+}
+
+.heroImage img {
+  aspect-ratio: 0.72;
+  border: 8px solid var(--paper);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.heroImage figcaption {
+  color: var(--paper);
+  margin: 1rem 0 0;
+  text-align: center;
 }
 
 .eyebrow,
@@ -368,6 +438,17 @@ figcaption {
   right: max(2rem, calc((100vw - 1120px) / 2));
   text-transform: uppercase;
   z-index: 1;
+}
+
+.scrollHint::after {
+  background: var(--sun);
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 0.5rem;
+  transform-origin: left;
+  animation: linePulse 1.8s ease-in-out infinite;
+  width: 100%;
 }
 
 #about {
@@ -458,6 +539,12 @@ figcaption {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   min-height: 430px;
+  transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 350ms ease;
+}
+
+.projectFeature:hover {
+  box-shadow: 0 22px 50px rgba(23, 63, 95, 0.14);
+  transform: translateY(-8px);
 }
 
 .projectCopy {
@@ -499,6 +586,17 @@ figure {
   display: block;
   object-fit: cover;
   width: 100%;
+  transition: filter 350ms ease, transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.imageGallery figure {
+  overflow: hidden;
+}
+
+.imageGallery figure:hover img,
+.imageGallery figure:focus-within img {
+  filter: saturate(1.15) contrast(1.05);
+  transform: scale(1.04);
 }
 
 figcaption {
@@ -559,6 +657,20 @@ figcaption {
     padding: 7rem 0 5rem;
   }
 
+  .heroLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisuals {
+    justify-content: flex-start;
+    margin-bottom: 4rem;
+    margin-left: 1rem;
+  }
+
+  .heroImage {
+    width: min(38vw, 190px);
+  }
+
   #about,
   .projectFeature,
   .resumeDetails {
@@ -592,5 +704,84 @@ figcaption {
 
   #footer > div:first-child {
     margin-left: 0;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(3rem) rotate(0deg) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes imageFloat {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -0.75rem;
+  }
+}
+
+@keyframes linePulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleX(0.55);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .heroContent .eyebrow,
+  .heroContent h1,
+  .heroContent h2,
+  .heroContent .heroIntro,
+  .heroImage,
+  .scrollHint::after {
+    animation: none;
+  }
+
+  .heroImageUniversity {
+    transform: rotate(-5deg) translateY(1rem);
+  }
+
+  .heroImageVibe {
+    transform: rotate(5deg) translateY(-1rem);
+  }
+
+  .projectFeature,
+  .imageGallery img {
+    transition: none;
+  }
+
+  .projectFeature:hover {
+    transform: none;
   }
 }
