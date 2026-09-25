@@ -215,3 +215,382 @@ img.socialIcon {
     animation: none;
   }
 }
+
+:root {
+  --ink: #173f5f;
+  --paper: #faf8f3;
+  --sun: #f6c85f;
+  --coral: #ed553b;
+  --muted: #52616b;
+  --line: rgba(23, 63, 95, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Montserrat", sans-serif;
+}
+
+section {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+section.padding {
+  padding: 8rem max(2rem, calc((100vw - 1120px) / 2));
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  max-width: 100%;
+}
+
+h1 {
+  color: var(--paper);
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  letter-spacing: 0;
+  line-height: 0.86;
+  max-width: 9ch;
+  text-wrap: balance;
+}
+
+h2 {
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: 0;
+  line-height: 1;
+  padding-top: 0;
+  text-wrap: balance;
+}
+
+h3 {
+  color: var(--ink);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.05;
+}
+
+p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+p.large {
+  color: var(--ink);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.45;
+}
+
+a {
+  color: inherit;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--coral);
+}
+
+#home {
+  align-items: flex-start;
+  background: var(--ink);
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#home::after {
+  background: linear-gradient(90deg, rgba(23, 63, 95, 0.9) 0%, rgba(23, 63, 95, 0.35) 55%, rgba(23, 63, 95, 0.05) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+#home .background {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.85;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.heroContent {
+  margin: auto 0;
+  max-width: 650px;
+  padding: 8rem 0 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow,
+.projectNumber,
+.projectMeta,
+figcaption {
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.heroContent h2 {
+  color: var(--sun);
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  margin-top: 1.5rem;
+}
+
+.heroIntro {
+  color: rgba(250, 248, 243, 0.86);
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  max-width: 34rem;
+}
+
+.scrollHint {
+  bottom: 2rem;
+  color: var(--paper);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  position: absolute;
+  right: max(2rem, calc((100vw - 1120px) / 2));
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+#about {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+}
+
+.sectionIntro {
+  max-width: 620px;
+}
+
+.sectionIntro > p:last-child {
+  border-left: 3px solid var(--sun);
+  margin-top: 2rem;
+  padding-left: 1.25rem;
+}
+
+.skillsPanel {
+  align-self: start;
+  background: var(--sun);
+  padding: 2rem;
+}
+
+.skillsPanel .eyebrow {
+  color: var(--ink);
+}
+
+.skillsList {
+  display: grid;
+  gap: 0.6rem 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skillsList li,
+.resumeDetails li {
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.skillsList li::before {
+  color: var(--coral);
+  content: "+";
+  font-weight: 800;
+  margin-right: 0.45rem;
+}
+
+.resumeDetails {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 2rem;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-top: 2.5rem;
+}
+
+.resumeDetails ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.resumeDetails li + li {
+  margin-top: 0.7rem;
+}
+
+#portfolio {
+  background: #e8f1f2;
+}
+
+.sectionHeading {
+  align-items: end;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.sectionHeading > p {
+  max-width: 18rem;
+}
+
+.projectFeature {
+  background: var(--paper);
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  min-height: 430px;
+}
+
+.projectCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.projectCopy h3 {
+  margin: 0.5rem 0 1.25rem;
+}
+
+.projectMeta {
+  color: var(--muted);
+  margin-top: 2rem;
+}
+
+.projectFeature > img {
+  height: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.imageGallery {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+figure {
+  margin: 0;
+}
+
+.imageGallery img {
+  aspect-ratio: 1.35;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+figcaption {
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+#footer {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  gap: 2rem;
+  padding: 6rem max(2rem, calc((100vw - 1120px) / 2)) 3rem !important;
+}
+
+.contactIntro h2 {
+  color: var(--paper);
+}
+
+.contactIntro p:last-child {
+  color: rgba(250, 248, 243, 0.7);
+}
+
+#footer > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: auto;
+  max-width: 24rem;
+}
+
+#footer > div:first-child > a {
+  border: 1px solid rgba(250, 248, 243, 0.45);
+  display: inline-flex;
+  height: auto;
+  padding: 0.8rem 1rem;
+  width: auto;
+}
+
+#footer > p {
+  border-top: 1px solid rgba(250, 248, 243, 0.2);
+  color: rgba(250, 248, 243, 0.7) !important;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  section.padding {
+    padding: 6rem 1.25rem;
+  }
+
+  #home {
+    min-height: 720px;
+  }
+
+  .heroContent {
+    padding: 7rem 0 5rem;
+  }
+
+  #about,
+  .projectFeature,
+  .resumeDetails {
+    grid-template-columns: 1fr;
+  }
+
+  #about {
+    gap: 3rem;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .projectFeature > img {
+    min-height: 280px;
+    order: -1;
+  }
+
+  .imageGallery {
+    grid-template-columns: 1fr;
+  }
+
+  #footer {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  #footer > div:first-child {
+    margin-left: 0;
+  }
+}

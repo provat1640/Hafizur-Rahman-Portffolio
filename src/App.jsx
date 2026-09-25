@@ -24,19 +24,17 @@ import "./styles.css";
  * If you don't have one of the social sites listed, leave it as an empty string.
  */
 const siteProps = {
-  name: "Alexandrie Grenier",
-  title: "Web Designer & Content Creator",
-  email: "alex@example.com",
-  gitHub: "microsoft",
-  instagram: "microsoft",
-  linkedIn: "satyanadella",
-  medium: "",
-  twitter: "microsoft",
-  youTube: "Code",
+  name: "Hafizur Rahman Provat",
+  title: "Software Engineering Student",
+  email: "vatpro8@gmail.com",
+  phone: "01763676326",
+  address: "Ashulia, Savar, 1341 Dhaka",
+  website: "https://neo-crisp-4dca81.netlify.app",
+  linkedIn: "https://linkedin.com/in/hafizur-rahman-0a404221a",
 };
 
-const primaryColor = "#4E567E";
-const secondaryColor = "#D2F1E4";
+const primaryColor = "#173f5f";
+const secondaryColor = "#f6c85f";
 
 const App = () => {
   return (

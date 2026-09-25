@@ -9,19 +9,9 @@
  */
 
 import React from "react";
-
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
-import image from "../images/design-desk.jpeg";
-
-const imageAltText = "desktop with books and laptop";
+import vibeImage from "../Image/Vibe.jpeg";
+import hotelImage from "../Image/Hotel-motel.jpeg";
+import nightImage from "../Image/night1.jpeg";
 
 /**
  * Project list
@@ -31,53 +21,40 @@ const imageAltText = "desktop with books and laptop";
  */
 const projectList = [
   {
-    title: "10 Things To Know About Azure Static Web Apps 🎉",
+    title: "Colorant and color mixing software",
     description:
-      "Collaboration to create a beginner friendly article to help explain Azure Static Web Apps and tooling to get started.",
-    url: "https://dev.to/azure/10-things-to-know-about-azure-static-web-apps-3n4i",
-  },
-  {
-    title: "Web Development for Beginners",
-    description:
-      "Contributed sketch note imagery to accompany each lesson. These help provide visual representation of what is being taught.",
-    url: "https://github.com/microsoft/web-dev-for-beginners",
-  },
-  {
-    title: "My Resume Site",
-    description:
-      "Created from Microsoft's resume workshop and deployed to GitHub pages. Includes my experience and design abilities.",
-    url: "https://github.com/microsoft/workshop-library/tree/main/full/build-resume-website",
-  },
-  {
-    title: "GitHub Codespaces and github.dev",
-    description:
-      "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool.",
-    url: "https://www.youtube.com/watch?v=c3hHhRME_XI",
+      "Product development work for Berger Paints, inspecting the software process from price details through color grading and dispensing.",
   },
 ];
 
 const Portfolio = () => {
   return (
-    <section className="padding" id="portfolio">
-      <h2 style={{ textAlign: "center" }}>Portfolio</h2>
-      <div style={{ display: "flex", flexDirection: "row", paddingTop: "3rem" }}>
-        <div style={{ maxWidth: "40%", alignSelf: "center" }}>
-          <img
-            src={image}
-            style={{ height: "90%", width: "100%", objectFit: "cover" }}
-            alt={imageAltText}
-          />
+    <section className="padding portfolioSection" id="portfolio">
+      <div className="sectionHeading">
+        <div>
+          <p className="eyebrow">Selected work</p>
+          <h2>From coursework to useful software.</h2>
         </div>
-        <div className="container">
-          {projectList.map((project) => (
-            <div className="box" key={project.title}>
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <h3 style={{ flexBasis: "40px" }}>{project.title}</h3>
-              </a>
-              <p className="small">{project.description}</p>
-            </div>
-          ))}
+        <p>Visual studies from my work and learning journey.</p>
+      </div>
+      <div className="projectFeature">
+        <div className="projectCopy">
+          <p className="projectNumber">01 / Product development</p>
+          <h3>{projectList[0].title}</h3>
+          <p>{projectList[0].description}</p>
+          <p className="projectMeta">Berger Paints / April 2024</p>
         </div>
+        <img src={vibeImage} alt="Project visual for colorant and color mixing software" />
+      </div>
+      <div className="imageGallery" aria-label="Selected portfolio imagery">
+        <figure>
+          <img src={hotelImage} alt="Selected portfolio visual titled Hotel-motel" />
+          <figcaption>Selected work / 02</figcaption>
+        </figure>
+        <figure>
+          <img src={nightImage} alt="Selected portfolio visual titled night1" />
+          <figcaption>Selected work / 03</figcaption>
+        </figure>
       </div>
     </section>
   );
